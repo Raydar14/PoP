@@ -400,6 +400,17 @@
   .sc-foot p{color:var(--ash);font-size:18px;line-height:1.65;margin:0}
   @media(max-width:720px){.selfcheck-grid{grid-template-columns:1fr}}
   .cmark{font-size:.5em;vertical-align:.55em;font-weight:400;line-height:0;letter-spacing:0}
+  .sc-item{cursor:pointer;user-select:none}
+  .sc-item .sc-mark{background:transparent;border:1.5px solid var(--ash-dim);color:transparent;transition:all .18s}
+  .sc-item:hover .sc-mark{border-color:var(--signal-bright)}
+  .sc-item.on .sc-mark{background:var(--signal);border-color:var(--signal);color:#fff}
+  .sc-item.on p{color:#fff}
+  .sc-result{margin-top:30px;max-width:700px;padding:24px 26px;border-radius:16px;border:1px solid var(--line);background:var(--carbon-2);display:none}
+  .sc-result.show{display:block;animation:scfade .3s ease}
+  .sc-result.alert{border-color:var(--signal);box-shadow:0 0 0 1px var(--signal) inset}
+  .sc-result p{margin:0 0 16px;color:var(--bone);font-size:18px;line-height:1.6}
+  .sc-result .sc-count{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--signal-bright);display:block;margin-bottom:10px}
+  @keyframes scfade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -461,9 +472,9 @@
     <div class="head reveal">
       <span class="eyebrow">A quiet, honest question</span>
       <h2>Do I have a problem with porn?</h2>
-      <p>There's no shame in asking. It isn't measured by hours or frequency, it's measured by the cost. Read through the signs below and notice how many feel familiar.</p>
+      <p>There's no shame in asking. It isn't measured by hours or frequency, it's measured by the cost. Tap each sign that feels true, and we'll read the result together.</p>
     </div>
-    <div class="selfcheck-grid reveal">
+    <div class="selfcheck-grid reveal" id="sc-grid">
       <div class="sc-item"><span class="sc-mark">&#10003;</span><p>You've tried to cut back or stop, but keep coming back.</p></div>
       <div class="sc-item"><span class="sc-mark">&#10003;</span><p>You need more, or more extreme content, to feel the same release.</p></div>
       <div class="sc-item"><span class="sc-mark">&#10003;</span><p>It's taking time you meant for sleep, work, or the people you love.</p></div>
@@ -473,12 +484,51 @@
       <div class="sc-item"><span class="sc-mark">&#10003;</span><p>You feel like the choice isn't fully yours anymore.</p></div>
       <div class="sc-item"><span class="sc-mark">&#10003;</span><p>You promise yourself "this is the last time," and it isn't.</p></div>
     </div>
+    <div class="sc-result" id="sc-result" aria-live="polite"></div>
     <div class="sc-foot reveal">
       <p>If several of these feel true, it doesn't mean you're broken, and it doesn't mean you'll feel this way forever. It means your brain has learned a pattern, and patterns can be retrained.</p>
-      <a class="btn btn-primary" href="#start">Talk it through with Dr. <span class="pwr">Powers</span> <span class="arr">&rarr;</span></a>
     </div>
   </div>
 </section>
+<script>
+(function(){
+  var grid=document.getElementById("sc-grid");
+  if(!grid)return;
+  var items=Array.prototype.slice.call(grid.querySelectorAll(".sc-item"));
+  var res=document.getElementById("sc-result");
+  var total=items.length;
+  function render(){
+    var n=grid.querySelectorAll(".sc-item.on").length;
+    if(n===0){res.className="sc-result";res.innerHTML="";return;}
+    var label="<span class='sc-count'>"+n+" of "+total+" selected</span>";
+    var body,alert=false;
+    if(n<=2){
+      body="<p>A couple of these can be true for almost anyone. On their own they don't necessarily point to a problem, just keep checking in with yourself.</p>";
+    } else if(n<total){
+      body="<p>Noticing three or more is worth taking seriously. This is exactly the kind of pattern treatment is built for, and it responds well to the right support.</p><a class='btn btn-primary' href='#start'>Talk it through with Dr. <span class='pwr'>Powers</span> <span class='arr'>&rarr;</span></a>";
+    } else {
+      alert=true;
+      body="<p>You don't have to white-knuckle this. Please reach out now, real help is one call away.</p><a class='btn btn-primary' href='tel:18508079801'>Call (850) 807-9801 now</a>";
+    }
+    res.innerHTML=label+body;
+    res.className="sc-result show"+(alert?" alert":"");
+  }
+  items.forEach(function(it){
+    it.setAttribute("role","button");
+    it.setAttribute("tabindex","0");
+    it.setAttribute("aria-pressed","false");
+    function toggle(){
+      it.classList.toggle("on");
+      it.setAttribute("aria-pressed",it.classList.contains("on"));
+      render();
+    }
+    it.addEventListener("click",toggle);
+    it.addEventListener("keydown",function(e){
+      if(e.key===" "||e.key==="Enter"){e.preventDefault();toggle();}
+    });
+  });
+})();
+</script>
 
 <section class="reframe">
   <div class="wrap">
