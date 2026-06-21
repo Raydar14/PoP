@@ -764,7 +764,7 @@
          INTAKE FORM SETUP (2 minutes):
          1. Create a free form at https://formspree.io and copy your endpoint.
          2. Replace YOUR_FORM_ID below in the action="..." attribute.
-         3. Replace YOUR_EMAIL@example.com in the script (mailto fallback).
+         3. (Done) mailto fallback now sends to info@drpowerstherapy.com.
          Until then, the button opens the visitor's email app to YOUR_EMAIL.
     ==================================================================== -->
     <form class="intake reveal" id="intakeForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
@@ -912,7 +912,7 @@
           'For: ' + (d.get('for_whom') || ''),
           'Mailing list: ' + (d.get('mailing_list') ? 'Yes' : 'No')
         ].join('\n');
-        window.location.href = 'mailto:YOUR_EMAIL@example.com'
+        window.location.href = 'mailto:info@drpowerstherapy.com'
           + '?subject=' + encodeURIComponent('Power Over Porn, new inquiry')
           + '&body=' + encodeURIComponent(lines);
         return;
