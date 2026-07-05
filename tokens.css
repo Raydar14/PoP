@@ -1,0 +1,140 @@
+/* =========================================================================
+   POWER OVER PORN — Design Tokens
+   Brand: Raychel Powers, Psy.D.  |  Accent: Signal Red #C8161D
+   Drop this in and build everything through the custom properties below.
+   ========================================================================= */
+
+/* ---- Typefaces (load from Google Fonts) ------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,600&family=Spline+Sans+Mono:wght@400;500;600&display=swap");
+
+:root{
+  /* ---- Brand palette (absolute, theme-independent) ------------------- */
+  --ink:#0C0A0B;            /* primary dark ground            */
+  --carbon:#15100F;         /* raised dark surface / cards    */
+  --carbon-2:#1D1618;       /* inset panels, code blocks      */
+  --bone:#F4EFEA;           /* light ground / text on dark    */
+  --ash:#9C9296;            /* secondary / muted text         */
+  --ash-dim:#6E666A;        /* captions, hairline labels      */
+  --signal:#C8161D;         /* brand red — primary actions    */
+  --signal-bright:#E8242B;  /* hover / accent on dark         */
+  --ember:#5E0B0F;          /* deep red shadows & glows       */
+
+  /* ---- Typefaces ----------------------------------------------------- */
+  --font-display:"Fraunces", Georgia, "Times New Roman", serif;   /* headings */
+  --font-body:"Archivo", system-ui, -apple-system, "Segoe UI", sans-serif; /* body */
+  --font-mono:"Spline Sans Mono", ui-monospace, "SF Mono", Menlo, monospace; /* labels, data */
+
+  /* ---- Type scale ---------------------------------------------------- */
+  --t-cap:0.72rem;                      /* mono labels / captions   */
+  --t-sm:0.9rem;
+  --t-body:1.0625rem;                   /* base body                */
+  --t-lead:1.25rem;                     /* lead paragraph           */
+  --t-h3:1.5rem;
+  --t-h2:2.15rem;
+  --t-h1:clamp(2.6rem, 6vw, 4.25rem);   /* display                  */
+  --tracking-label:0.2em;               /* uppercase mono tracking  */
+
+  /* ---- Spacing & layout --------------------------------------------- */
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px;
+  --sp-6:24px; --sp-8:32px; --sp-12:48px; --sp-16:64px;
+  --gutter:clamp(20px, 5vw, 64px);
+  --maxw:1180px;
+
+  /* ---- Radii & elevation -------------------------------------------- */
+  --radius-pill:100px;                  /* buttons, chips           */
+  --radius-card:16px;                   /* cards, panels            */
+  --radius-input:10px;
+  --line:rgba(244,239,234,0.10);        /* hairline on dark         */
+  --line-soft:rgba(244,239,234,0.06);
+  --shadow:0 30px 80px -30px rgba(0,0,0,0.75);
+  --shadow-red:0 14px 34px -16px rgba(200,22,29,0.55);
+
+  /* ---- Semantic theme tokens (default = DARK, the brand's native look) */
+  --bg:var(--ink);
+  --surface:var(--carbon);
+  --surface-2:var(--carbon-2);
+  --text:var(--bone);
+  --text-soft:#C9C1C4;
+  --muted:var(--ash);
+  --border:var(--line);
+  --border-soft:var(--line-soft);
+  --accent:var(--signal-bright);        /* red reads brighter on dark */
+  --accent-press:var(--signal);
+  --on-accent:#FFFFFF;
+}
+
+/* ---- Light theme (bone paper) — via OS preference -------------------- */
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:var(--bone);
+    --surface:#FFFFFF;
+    --surface-2:#ECE6DE;
+    --text:var(--carbon);
+    --text-soft:#4A4245;
+    --muted:var(--ash-dim);
+    --border:rgba(12,10,11,0.14);
+    --border-soft:rgba(12,10,11,0.08);
+    --accent:var(--signal);
+    --accent-press:var(--ember);
+    --on-accent:#FFFFFF;
+  }
+}
+
+/* ---- Explicit overrides (class or data-attr wins over OS preference) - */
+:root[data-theme="dark"], .theme-dark{
+  --bg:var(--ink); --surface:var(--carbon); --surface-2:var(--carbon-2);
+  --text:var(--bone); --text-soft:#C9C1C4; --muted:var(--ash);
+  --border:var(--line); --border-soft:var(--line-soft);
+  --accent:var(--signal-bright); --accent-press:var(--signal); --on-accent:#FFFFFF;
+}
+:root[data-theme="light"], .theme-light{
+  --bg:var(--bone); --surface:#FFFFFF; --surface-2:#ECE6DE;
+  --text:var(--carbon); --text-soft:#4A4245; --muted:var(--ash-dim);
+  --border:rgba(12,10,11,0.14); --border-soft:rgba(12,10,11,0.08);
+  --accent:var(--signal); --accent-press:var(--ember); --on-accent:#FFFFFF;
+}
+
+/* =========================================================================
+   Minimal base + primitives (optional — delete if you only want tokens)
+   ========================================================================= */
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  font-size:var(--t-body);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{ font-family:var(--font-display); font-weight:600; line-height:1.05; text-wrap:balance; }
+h1{ font-size:var(--t-h1); letter-spacing:-0.01em; }
+h2{ font-size:var(--t-h2); }
+h3{ font-size:var(--t-h3); }
+
+/* Eyebrow / section label */
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:var(--t-cap);
+  letter-spacing:var(--tracking-label);
+  text-transform:uppercase;
+  color:var(--accent);
+}
+
+/* Buttons */
+.btn{
+  font-family:var(--font-body); font-weight:600; font-size:0.95rem;
+  border-radius:var(--radius-pill); padding:12px 22px;
+  border:1px solid transparent; cursor:pointer;
+  display:inline-flex; gap:9px; align-items:center; text-decoration:none;
+  transition:background .15s ease, border-color .15s ease;
+}
+.btn:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+.btn-primary{ background:var(--signal); color:var(--on-accent); box-shadow:var(--shadow-red); }
+.btn-primary:hover{ background:var(--signal-bright); }
+.btn-ghost{ background:transparent; color:var(--text); border-color:var(--border); }
+.btn-ghost:hover{ border-color:var(--accent); color:var(--accent); }
+
+/* Numbers that line up (prices, codes) */
+.tabular{ font-variant-numeric:tabular-nums; }
+
+@media (prefers-reduced-motion: reduce){ *{ transition:none !important; } }
