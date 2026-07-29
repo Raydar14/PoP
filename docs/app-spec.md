@@ -7,6 +7,16 @@ This document is a design and planning artifact — not a commitment to scope, t
 
 ---
 
+## 0. Decisions adopted (v0.2)
+
+- **Private-first, no sponsor/ally sharing** — removed peer data-sharing; the app keeps data on-device by default.
+- **Cinematic first-run** — onboarding is an animated multi-step walkthrough (ambient motion, an animated urge-wave and habit-loop), not a static screen.
+- **No emoji UI** — mood check-in uses a refined bar scale; milestones/settings use custom line icons.
+- **PWA MVP first**, then native (validate cheaply, reuse the prototype).
+- **SOS urge tool free forever** — safety is never paywalled.
+
+Still open (see `docs/app-todo.md`): app name, program content, legal/store review.
+
 ## 1. Vision
 
 The website converts people who are ready for help. The **app is where the work actually happens** — every day, in private, often at the exact moment an urge hits at 11pm.
@@ -159,7 +169,9 @@ The emotional core. Full-screen, calm, reachable from anywhere.
 - **Data controls:** export, delete account/data.
 
 ### 7.8 Accountability & community (phased)
-- 1:1 ally (partner/sponsor): opt-in visibility, panic-alert on SOS (optional), weekly report.
+- **No peer/sponsor data-sharing in v1.** Per design direction, the app is private-first: progress, journals, and urges stay with the user. We are intentionally *not* shipping "share your report with a sponsor/ally."
+- If a peer-support model is added later, it must be strictly opt-in, minimal (a nudge, not raw data), and off by default.
+- Optional **therapist report** is deferred and, if built, is user-initiated export only — never automatic.
 - Moderated, anonymous group/community — **later phase**, high moderation cost; ship only with a safety plan.
 
 ### 7.9 Library (phased)
