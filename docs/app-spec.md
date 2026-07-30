@@ -14,6 +14,7 @@ This document is a design and planning artifact — not a commitment to scope, t
 - **No emoji UI** — mood check-in uses a refined bar scale; milestones/settings use custom line icons.
 - **PWA MVP first**, then native (validate cheaply, reuse the prototype).
 - **SOS urge tool free forever** — safety is never paywalled.
+- **Biofeedback / wearables (Signals)** — connect Oura, Apple Watch, Whoop, Garmin, Fitbit for HRV-stress and opt-in late-night risk windows; framed as proactive support, on-device, never surveillance.
 
 Still open (see `docs/app-todo.md`): app name, program content, legal/store review.
 
@@ -176,6 +177,30 @@ The emotional core. Full-screen, calm, reachable from anywhere.
 
 ### 7.9 Library (phased)
 - Brain-science explainers, guided audio (urge surfing, sleep, self-compassion), articles by Dr. Powers.
+
+### 7.9b Biofeedback & wearables (Signals)
+Connect a wearable to turn physiology into *proactive support* — never a "gotcha."
+
+**Sources**
+- **Apple Watch / iPhone** — HealthKit: heart rate, HRV (SDNN), resting HR, sleep, workouts; background delivery. Data stays on-device.
+- **Wear OS / Android** — Health Connect: HR, HRV, sleep.
+- **Oura** — Cloud API v2 (OAuth): HRV, resting HR, sleep stages, readiness/daytime stress.
+- **Whoop, Garmin, Fitbit** — each has a developer API (recovery/strain, HR, sleep) via OAuth.
+- Unified integration layer; prefer on-device processing (HealthKit) and pull cloud sources (Oura, etc.) through the backend with user consent.
+
+**What we compute**
+- **Stress trend** — low HRV + elevated resting HR ⇒ a personal daily "stress/recovery" score; flag high-stress days.
+- **Risk clock** — learn the user's own windows where *elevated HR while awake* + logged urges cluster (e.g., 11pm–1am, 3am), and offer an opt-in **gentle check-in before** those windows.
+- **Correlations** — surface honest links ("low-recovery days → ~2× urges") to inform planning.
+- **Signal events** — e.g., "elevated HR while awake at 12:41am → sent a calm check-in." If acted on, logged as a **win**, never a slip.
+
+**Honest limits (must be stated in-product)**
+- HR/HRV **cannot prove** a specific behavior — arousal, anxiety, caffeine, exercise, illness, and dreams all raise HR. Signals are *supportive hints*, combined with the user's own logging — not detection or proof.
+- The arousal/late-night detection is **opt-in and individually toggleable**; some users will want it, some won't.
+- Framed as self-awareness + proactive help, never surveillance or shame.
+
+**Privacy**
+- Health data is among the most sensitive we touch: process on-device where possible; encrypt cloud-synced signals; never sell or share; user chooses exactly which signals are on. Treat as PHI-adjacent — see §9/§11 for HIPAA/vendor considerations.
 
 ### 7.10 Notifications & engagement
 - Daily check-in nudge (respects quiet hours).

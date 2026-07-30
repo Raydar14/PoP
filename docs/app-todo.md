@@ -33,3 +33,10 @@ I built the prototype and spec autonomously overnight. These are the decisions a
 - Interactive, on-brand prototype — 5 screens (Today, Program, SOS, Reflect, You): `app/prototype.html` + published Artifact link (in the chat).
 - Comprehensive product spec: `docs/app-spec.md`.
 - Everything uses the site's existing brand system (colors, fonts, the brain logo).
+
+## Biofeedback / wearables (Signals) — new
+- [ ] **Confirm the concept & tone** — OK to detect *late-night elevated-HR windows* and nudge, framed as support (opt-in, on-device, "logged as a win, not a slip")? Any part you want softer or off by default?
+- [ ] **Which devices first?** I'd start with **Apple Watch/iPhone (HealthKit)** + **Oura**, then Whoop/Garmin/Fitbit/Health Connect.
+- [ ] **API access & accounts** — Oura, Whoop, Garmin, Fitbit developer programs + OAuth; Apple HealthKit entitlement; Android Health Connect. Some require app review/approval.
+- [ ] **Health data = PHI-adjacent** — legal/privacy review for storing/processing HR/HRV/sleep; on-device processing preferred; BAA if any of it reaches your practice.
+- [ ] **Clinical framing** — you (Dr. Powers) to confirm how we describe stress/HRV and the "risk window" so it stays evidence-informed and non-alarmist.
