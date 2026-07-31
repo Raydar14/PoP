@@ -40,3 +40,9 @@ I built the prototype and spec autonomously overnight. These are the decisions a
 - [ ] **API access & accounts** — Oura, Whoop, Garmin, Fitbit developer programs + OAuth; Apple HealthKit entitlement; Android Health Connect. Some require app review/approval.
 - [ ] **Health data = PHI-adjacent** — legal/privacy review for storing/processing HR/HRV/sleep; on-device processing preferred; BAA if any of it reaches your practice.
 - [ ] **Clinical framing** — you (Dr. Powers) to confirm how we describe stress/HRV and the "risk window" so it stays evidence-informed and non-alarmist.
+
+## Meditation coping skill · Be333.app — new
+- [ ] **Confirm the flow** — meditation is an opt-in coping skill; the app launches **Be333.app** for the timer and logs sessions back once connected. Good?
+- [ ] **Be333.app integration** — what can Be333.app expose? Need either (a) a deep-link to start a timed session + a webhook/API to report completion, or (b) account linking (OAuth) to pull sessions. Who builds the Be333 side?
+- [ ] **What to sync** — minutes, session length, streak, timestamp (to correlate with urges). Confirm.
+- [ ] **Entry points** — Today "daily practice", the high-risk-window nudge, and an SOS "Meditate with Be333" action. OK?

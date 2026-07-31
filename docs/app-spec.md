@@ -14,6 +14,8 @@ This document is a design and planning artifact — not a commitment to scope, t
 - **No emoji UI** — mood check-in uses a refined bar scale; milestones/settings use custom line icons.
 - **PWA MVP first**, then native (validate cheaply, reuse the prototype).
 - **SOS urge tool free forever** — safety is never paywalled.
+- **Data, not surveillance** — the Signals framing is honesty: HR can't prove behavior, but seeing your body respond makes it harder to lie to yourself.
+- **Meditation coping skill via Be333.app** — opt-in; launches Be333.app for the timer and logs sessions/minutes back into the app once connected.
 - **Biofeedback / wearables (Signals)** — connect Oura, Apple Watch, Whoop, Garmin, Fitbit for HRV-stress and opt-in late-night risk windows; framed as proactive support, on-device, never surveillance.
 
 Still open (see `docs/app-todo.md`): app name, program content, legal/store review.
@@ -122,6 +124,7 @@ Today    Program    ( SOS )    Reflect    You
 - **Today's focus** — the next lesson/exercise, one tap to continue.
 - **Right now** — one-tap urge check (Calm / Noticing / Strong) that logs and, if Strong, offers SOS.
 - Daily reassurance quote (Dr. Powers voice).
+- **Signals-triggered high-risk nudge** (opt-in): when a learned high-risk window is ~30 min out, a calm "get ahead of the wave" card offers a quick practice — never after-the-fact blame.
 - Persistent crisis line.
 
 ### 7.3 Program — "The Recovery Model"
@@ -197,10 +200,19 @@ Connect a wearable to turn physiology into *proactive support* — never a "gotc
 **Honest limits (must be stated in-product)**
 - HR/HRV **cannot prove** a specific behavior — arousal, anxiety, caffeine, exercise, illness, and dreams all raise HR. Signals are *supportive hints*, combined with the user's own logging — not detection or proof.
 - The arousal/late-night detection is **opt-in and individually toggleable**; some users will want it, some won't.
-- Framed as self-awareness + proactive help, never surveillance or shame.
+- **Data, not surveillance.** HR/HRV can't prove a behavior — but it is harder to lie to yourself when you can see your body respond. The purpose is *honesty*: seeing the real bodily impact of your choices. Framed as self-awareness, never a "gotcha."
 
 **Privacy**
 - Health data is among the most sensitive we touch: process on-device where possible; encrypt cloud-synced signals; never sell or share; user chooses exactly which signals are on. Treat as PHI-adjacent — see §9/§11 for HIPAA/vendor considerations.
+
+### 7.9c Meditation coping skill (Be333.app integration)
+A core coping skill: brief daily meditation that trains the prefrontal "pause" urge surfing relies on.
+
+- **Opt-in integration with Be333.app** (the user's meditation timer). The app doesn't rebuild a timer — it *launches* Be333.app for the session and, once the accounts are linked, **logs each session (minutes, streak) back into the recovery data**.
+- Entry points: a **Today "daily practice"** path, the **high-risk-window nudge**, and an **SOS action** ("Meditate with Be333") for an in-the-moment reset.
+- Value: shows meditation *measured against urges* — e.g., "on days you practice, urge intensity runs lower" — reinforcing the honesty theme (see your choices' real effect).
+- **Technical:** deep-link/URL to open Be333.app with a chosen duration; sync completed sessions back via a Be333.app API/webhook or a linked account (OAuth). Requires an integration on the Be333.app side — see TODO.
+- Privacy: session data is the user's; same on-device-first, opt-in, toggle-off-anytime stance as all Signals.
 
 ### 7.10 Notifications & engagement
 - Daily check-in nudge (respects quiet hours).
