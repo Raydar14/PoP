@@ -169,6 +169,25 @@ body{
 /* reflect */
 /* mood scale styles live with onboarding block */
 
+/* today nudge */
+.nudge{background:radial-gradient(120% 120% at 12% 0%,rgba(209,154,62,.13),transparent 55%),var(--carbon-2);border:1px solid rgba(209,154,62,.34);border-radius:var(--r);padding:16px 18px;margin-top:14px}
+.nudge-k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--caution)}
+.nudge-t{font-size:16px;font-weight:700;margin:7px 0 4px}
+.nudge-d{font-size:13px;color:var(--ash);line-height:1.5}
+.nudge .btn{margin-top:13px}
+/* meditate / be333 */
+.be-row{display:flex;align-items:center;gap:13px}
+.be-logo{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,#241c1e,#15100f);border:1px solid var(--line);display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:18px;color:var(--bone);letter-spacing:.02em}
+.be-s{font-size:12px;color:var(--ash);margin-top:4px;display:flex;align-items:center;gap:6px}
+.be-note{font-size:12.5px;color:var(--ash);line-height:1.55;margin:13px 0 0}
+.med-options{display:flex;gap:10px;margin-bottom:12px}
+.med-opt{flex:1;background:var(--carbon);border:1px solid var(--line);border-radius:14px;padding:15px 8px;text-align:center;color:var(--bone)}
+.med-opt b{font-family:var(--serif);font-weight:600;font-size:28px;display:block;line-height:1}
+.med-opt span{font-family:var(--mono);font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:var(--ash-dim);display:block;margin-top:7px}
+.med-opt.sel{border-color:var(--signal);box-shadow:inset 0 0 0 1px var(--signal)}
+.sos-actions .span2{grid-column:1/-1}
+
+
 /* signals / biofeedback */
 .dev{display:flex;align-items:center;gap:11px;padding:11px 0;font-size:14px;border-top:1px solid var(--line-soft)}
 .dev-dot{width:8px;height:8px;border-radius:50%;background:var(--ash-dim);flex:0 0 auto}
@@ -390,6 +409,13 @@ body{
           <div class="tile"><b>24</b><span>Longest run</span></div>
         </div>
 
+        <div class="nudge" data-go="meditate">
+          <div class="nudge-k">◑ Heads-up · high-risk window in 30 min</div>
+          <div class="nudge-t">Your 11:00 PM window is coming up</div>
+          <div class="nudge-d">Get ahead of the wave — a few minutes of practice now makes it smaller. Your body will thank you.</div>
+          <button class="btn" data-go="meditate">Start a 5-min practice</button>
+        </div>
+
         <div class="rowhead"><h3>Today's focus</h3><a data-go="program">Program →</a></div>
         <div class="card">
           <div class="lesson">
@@ -472,6 +498,7 @@ body{
           <button data-go="today">Play it forward<span>How you'll feel in 20 min</span></button>
           <button data-go="today">Ground yourself<span>5-4-3-2-1 senses</span></button>
           <button data-go="reflect">Log this urge<span>Turn it into data</span></button>
+          <button class="span2" data-go="meditate">Meditate with Be333 ↗<span>A 3-minute reset for the pause</span></button>
         </div>
         <button class="btn steady sos-through" data-go="today">I rode it out ✓</button>
         <p class="reassure">You've surfed <b>47 urges</b> before this one. Your brain is learning that the wave always passes.</p>
@@ -599,6 +626,38 @@ body{
         <button class="btn steady" data-go="program" style="margin-top:12px">Mark lesson complete ✓</button>
       </section>
 
+      <!-- ============ MEDITATE (coping skill · Be333) ============ -->
+      <section class="screen" id="meditate">
+        <button class="back" data-go="today">‹ Today</button>
+        <div class="eyebrow">Coping skill · Daily practice</div>
+        <h1 class="lesson-title">Meditation</h1>
+        <p class="body-copy" style="margin-top:0">Meditation trains the pause between an urge and an action — the prefrontal "brake" that urge surfing depends on. A few minutes a day makes every wave easier to ride.</p>
+
+        <div class="card be333">
+          <div class="be-row"><div class="be-logo">333</div><div style="flex:1"><b style="font-size:15px">Be333.app</b><div class="be-s"><span class="dev-dot on"></span>Connected · sessions log here automatically</div></div></div>
+          <p class="be-note">Your timer runs in Be333.app. When you finish, your minutes and streak sync back into your recovery data — so you can see practice measured against your urges. Optional, and off until you connect it.</p>
+        </div>
+
+        <div class="rowhead"><h3>Start a session</h3></div>
+        <div class="med-options">
+          <button class="med-opt"><b>3</b><span>min · reset</span></button>
+          <button class="med-opt sel"><b>5</b><span>min · calm</span></button>
+          <button class="med-opt"><b>10</b><span>min · deep</span></button>
+        </div>
+        <button class="btn" data-go="meditate">Open in Be333.app ↗</button>
+        <p class="ob-note" style="text-align:center;margin-top:10px">Opens Be333.app in a new tab. Turn the connection off anytime.</p>
+
+        <div class="rowhead"><h3>This week</h3></div>
+        <div class="card">
+          <div class="tiles" style="margin-top:0">
+            <div class="tile"><b>4</b><span>Sessions</span></div>
+            <div class="tile"><b>38</b><span>Minutes</span></div>
+            <div class="tile"><b>3</b><span>Day streak</span></div>
+          </div>
+          <div class="insight" style="margin-top:14px"><span class="i">◆</span><div>On the days you practice, your urge intensity runs <b>lower</b>. The honest data says it’s working.</div></div>
+        </div>
+      </section>
+
       <!-- ============ SIGNALS (biofeedback) ============ -->
       <section class="screen" id="signals">
         <button class="back" data-go="you">‹ You</button>
@@ -636,7 +695,7 @@ body{
         <div class="rowhead"><h3>Recent signal</h3></div>
         <div class="card sig"><span class="mi done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg></span><div><b>12:41 AM — elevated heart rate while awake</b><div class="sig-s">We sent a check-in. You opened the SOS tool and rode it out — logged as a win, not a slip.</div></div></div>
 
-        <div class="insight" style="margin-top:14px"><span class="i">◆</span><div>Support, not surveillance. Health data is processed <b>on your device</b>, is never sold, and you choose exactly what’s tracked — turn any signal off anytime.</div></div>
+        <div class="insight" style="margin-top:14px"><span class="i">◆</span><div><b>Data, not surveillance.</b> Your heart rate can’t prove what happened — but it’s harder to lie to yourself when you can see your body respond. This is about honesty: seeing the real impact of your choices. On-device, never sold, every signal optional.</div></div>
       </section>
 
       <!-- ============ ONBOARDING ============ -->
@@ -799,6 +858,7 @@ body{
     }
     draw(); window.addEventListener("resize",size);
   })();
+  document.querySelectorAll(".med-opt").forEach(function(o){o.addEventListener("click",function(){document.querySelectorAll(".med-opt").forEach(function(x){x.classList.remove("sel");});o.classList.add("sel");});});
   var rc=document.getElementById("riskclock");
   if(rc){var risk=[52,40,16,42,20,10,8,10,12,10,9,8,11,13,12,15,18,22,26,30,34,46,64,70];
     risk.forEach(function(v){var b=document.createElement("i");b.style.height=Math.max(6,v)+"%";if(v>=40)b.className="hot";rc.appendChild(b);});}
