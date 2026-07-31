@@ -169,6 +169,33 @@ body{
 /* reflect */
 /* mood scale styles live with onboarding block */
 
+/* connect / consent */
+.reassure-card{display:flex;gap:12px;align-items:flex-start;background:rgba(143,179,154,.08);border:1px solid rgba(143,179,154,.22);border-radius:14px;padding:14px;font-size:13px;line-height:1.5;color:var(--bone);margin-bottom:2px}
+.conns{padding:2px 18px}
+.conn{display:flex;align-items:center;gap:13px;width:100%;background:none;border:none;padding:14px 0;border-top:1px solid var(--line-soft);text-align:left;color:var(--bone)}
+.conn:first-child{border-top:none}
+.conn-ic{width:38px;height:38px;border-radius:10px;background:var(--carbon-3);border:1px solid var(--line);display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:16px;flex:0 0 auto;color:var(--bone)}
+.conn-ic svg{width:19px;height:19px}
+.conn-ic.be{font-size:13px;letter-spacing:.02em}
+.conn-b{flex:1;min-width:0}
+.conn-b b{font-size:14.5px}
+.conn-b small{display:block;color:var(--ash);font-size:12px;margin-top:2px}
+.conn-st{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--signal-bright);border:1px solid var(--line);padding:6px 11px;border-radius:99px;flex:0 0 auto}
+.conn-st.on{color:var(--steady);border-color:rgba(143,179,154,.4)}
+.auth-head{text-align:center;padding:8px 8px 2px}
+.auth-head h2{font-family:var(--serif);font-weight:600;font-size:24px;margin:16px 0 8px}
+.auth-head p{color:var(--ash);font-size:13.5px;line-height:1.55;margin:0 8px}
+.conn-ic.big{width:62px;height:62px;border-radius:17px;font-size:24px;margin:0 auto}
+.conn-ic.big svg{width:30px;height:30px}
+.perm{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 0;border-top:1px solid var(--line-soft)}
+.perm:first-child{border-top:none}
+.perm b{font-size:14px}
+.perm small{display:block;color:var(--ash);font-size:12px;margin-top:2px}
+.nevers{padding:14px 18px}
+.never{display:flex;gap:10px;align-items:center;font-size:13px;color:var(--ash);padding:7px 0}
+.never svg{width:15px;height:15px;color:var(--ash-dim);flex:0 0 auto}
+
+
 /* today nudge */
 .nudge{background:radial-gradient(120% 120% at 12% 0%,rgba(209,154,62,.13),transparent 55%),var(--carbon-2);border:1px solid rgba(209,154,62,.34);border-radius:var(--r);padding:16px 18px;margin-top:14px}
 .nudge-k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--caution)}
@@ -584,7 +611,7 @@ body{
         <div class="card" style="padding:2px 18px">
           <div class="setrow"><div class="rl"><span class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>Privacy &amp; App Lock</div><span class="cv">›</span></div>
           <div class="setrow"><div class="rl"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M10.6 5.1A9 9 0 0 1 21 12a16 16 0 0 1-2.1 3M6.6 6.6A16 16 0 0 0 3 12a9 9 0 0 0 12.9 4.2"/></svg></span>Stealth mode</div><span class="cv">›</span></div>
-          <div class="setrow" data-go="signals" style="cursor:pointer"><div class="rl"><span class="ic"><svg viewBox="0 0 24 24"><rect x="7" y="6" width="10" height="12" rx="2"/><path d="M9 6V3h6v3M9 18v3h6v-3"/></svg></span>Connected devices</div><span class="cv">›</span></div>
+          <div class="setrow" data-go="connect" style="cursor:pointer"><div class="rl"><span class="ic"><svg viewBox="0 0 24 24"><rect x="7" y="6" width="10" height="12" rx="2"/><path d="M9 6V3h6v3M9 18v3h6v-3"/></svg></span>Connected devices</div><span class="cv">›</span></div>
           <div class="setrow"><div class="rl"><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></span>Reminders &amp; quiet hours</div><span class="cv">›</span></div>
           <div class="setrow"><div class="rl"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M5 21h14"/></svg></span>Export my data</div><span class="cv">›</span></div>
           <div class="setrow"><div class="rl"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.4"/><path d="M5.6 5.6l3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6"/></svg></span>Crisis resources</div><span class="cv">›</span></div>
@@ -665,10 +692,10 @@ body{
         <h1 class="h-title" style="margin-bottom:16px">Signals</h1>
 
         <div class="card">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><span style="font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ash)">Connected</span><a data-go="signals" style="font-size:12px;color:var(--signal-bright);text-decoration:none;font-weight:600">Manage</a></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><span style="font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ash)">Connected</span><a data-go="connect" style="font-size:12px;color:var(--signal-bright);text-decoration:none;font-weight:600">Manage</a></div>
           <div class="dev"><span class="dev-dot on"></span><div class="dev-n">Oura Ring</div><div class="dev-s">Synced 8m ago</div></div>
           <div class="dev"><span class="dev-dot on"></span><div class="dev-n">Apple Watch</div><div class="dev-s">Live</div></div>
-          <div class="dev add">+ Connect Whoop, Garmin, Fitbit…</div>
+          <div class="dev add" data-go="connect" style="cursor:pointer">+ Connect Whoop, Garmin, Fitbit…</div>
         </div>
 
         <div class="rowhead"><h3>Stress this week</h3><span class="mono-note">from HRV</span></div>
@@ -696,6 +723,65 @@ body{
         <div class="card sig"><span class="mi done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg></span><div><b>12:41 AM — elevated heart rate while awake</b><div class="sig-s">We sent a check-in. You opened the SOS tool and rode it out — logged as a win, not a slip.</div></div></div>
 
         <div class="insight" style="margin-top:14px"><span class="i">◆</span><div><b>Data, not surveillance.</b> Your heart rate can’t prove what happened — but it’s harder to lie to yourself when you can see your body respond. This is about honesty: seeing the real impact of your choices. On-device, never sold, every signal optional.</div></div>
+      </section>
+
+      <!-- ============ CONNECT (integrations hub) ============ -->
+      <section class="screen" id="connect">
+        <button class="back" data-go="signals">‹ Signals</button>
+        <div class="eyebrow">Integrations</div>
+        <h1 class="h-title" style="margin-bottom:14px">Connect</h1>
+        <div class="reassure-card"><span class="mi done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><div>You choose what’s shared. Connections are <b>read-only</b>, processed on your device where possible, and you can disconnect anytime.</div></div>
+
+        <div class="rowhead"><h3>Health &amp; wearables</h3></div>
+        <div class="card conns">
+          <button class="conn" data-go="authorize"><span class="conn-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.5-9.5-9A5 5 0 0 1 12 6a5 5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></span><div class="conn-b"><b>Apple Health</b><small>Heart rate, HRV, sleep</small></div><span class="conn-st on">Connected</span></button>
+          <button class="conn" data-go="authorize"><span class="conn-ic">◍</span><div class="conn-b"><b>Oura Ring</b><small>HRV, resting HR, sleep, readiness</small></div><span class="conn-st on">Connected</span></button>
+          <button class="conn" data-go="authorize"><span class="conn-ic">W</span><div class="conn-b"><b>Whoop</b><small>Recovery, strain, heart rate</small></div><span class="conn-st">Connect</span></button>
+          <button class="conn" data-go="authorize"><span class="conn-ic">G</span><div class="conn-b"><b>Garmin</b><small>Heart rate, HRV, sleep</small></div><span class="conn-st">Connect</span></button>
+          <button class="conn" data-go="authorize"><span class="conn-ic">F</span><div class="conn-b"><b>Fitbit</b><small>Heart rate, sleep</small></div><span class="conn-st">Connect</span></button>
+          <button class="conn" data-go="authorize"><span class="conn-ic" style="font-size:11px">HC</span><div class="conn-b"><b>Health Connect</b><small>Android · HR, HRV, sleep</small></div><span class="conn-st">Connect</span></button>
+        </div>
+
+        <div class="rowhead"><h3>Practices</h3></div>
+        <div class="card conns">
+          <button class="conn" data-go="linkbe333"><span class="conn-ic be">333</span><div class="conn-b"><b>Be333.app</b><small>Meditation sessions, minutes, streak</small></div><span class="conn-st on">Connected</span></button>
+        </div>
+        <p class="crisis">We request the minimum each feature needs — nothing more.</p>
+      </section>
+
+      <!-- ============ AUTHORIZE (OAuth consent) ============ -->
+      <section class="screen" id="authorize">
+        <button class="back" data-go="connect">‹ Connect</button>
+        <div class="auth-head"><span class="conn-ic big">◍</span><h2>Connect Oura Ring</h2><p>Power over Porn will read the following from Oura. Read-only — we can’t change anything in Oura.</p></div>
+        <div class="rowhead"><h3>Allow access to</h3></div>
+        <div class="card" style="padding:2px 18px">
+          <div class="perm"><div><b>Heart-rate variability</b><small>Your stress / recovery signal</small></div><span class="switch on"></span></div>
+          <div class="perm"><div><b>Resting heart rate</b><small>Baseline &amp; trends</small></div><span class="switch on"></span></div>
+          <div class="perm"><div><b>Sleep &amp; wake times</b><small>Powers the risk clock</small></div><span class="switch on"></span></div>
+        </div>
+        <div class="rowhead"><h3>We will never</h3></div>
+        <div class="card nevers">
+          <div class="never"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>See or store explicit content</div>
+          <div class="never"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>Post anything to your accounts</div>
+          <div class="never"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>Sell or share your data</div>
+        </div>
+        <button class="btn" data-go="connect">Authorize with Oura</button>
+        <button class="btn ghost" data-go="connect" style="margin-top:10px">Not now</button>
+        <p class="ob-note" style="text-align:center;margin-top:10px">You’ll sign in at Oura, then come back here. Disconnect anytime in Settings.</p>
+      </section>
+
+      <!-- ============ LINK BE333 ============ -->
+      <section class="screen" id="linkbe333">
+        <button class="back" data-go="connect">‹ Connect</button>
+        <div class="auth-head"><span class="conn-ic be big">333</span><h2>Link Be333.app</h2><p>Run your meditation timer in Be333.app and sync your practice back into your recovery data.</p></div>
+        <div class="rowhead"><h3>What syncs back</h3></div>
+        <div class="card" style="padding:2px 18px">
+          <div class="perm"><div><b>Completed sessions</b><small>When &amp; how long you practiced</small></div><span class="switch on"></span></div>
+          <div class="perm"><div><b>Minutes &amp; streak</b><small>To measure practice against urges</small></div><span class="switch on"></span></div>
+        </div>
+        <div class="insight" style="margin-top:14px"><span class="i">◆</span><div>Only session summaries sync — never audio, never anything you write in Be333. Unlink anytime.</div></div>
+        <button class="btn" data-go="meditate">Link Be333 account</button>
+        <button class="btn ghost" data-go="connect" style="margin-top:10px">Cancel</button>
       </section>
 
       <!-- ============ ONBOARDING ============ -->
