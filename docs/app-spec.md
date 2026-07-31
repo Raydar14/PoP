@@ -214,6 +214,11 @@ A core coping skill: brief daily meditation that trains the prefrontal "pause" u
 - **Technical:** deep-link/URL to open Be333.app with a chosen duration; sync completed sessions back via a Be333.app API/webhook or a linked account (OAuth). Requires an integration on the Be333.app side — see TODO.
 - Privacy: session data is the user's; same on-device-first, opt-in, toggle-off-anytime stance as all Signals.
 
+### 7.9d Connecting devices & apps (consent flow)
+A single **Connect** hub lists integrations (Apple Health, Oura, Whoop, Garmin, Fitbit, Health Connect; Be333.app under Practices) with clear connected/connect states. Each connection goes through an explicit **consent screen**: granular read-only permission toggles, a plain "we will never" list (no explicit content, no posting, no selling), and an OAuth authorize step. Be333 uses an account-link variant. Reachable from Signals and Settings. Prototyped in `app/prototype.html`.
+
+**Be333.app integration** has its own engineering spec: `docs/be333-integration.md` (deep-link launch + OAuth + webhook sync).
+
 ### 7.10 Notifications & engagement
 - Daily check-in nudge (respects quiet hours).
 - "High-risk window" reminder based on the user's own trigger data (e.g., a supportive ping at 10:30pm).

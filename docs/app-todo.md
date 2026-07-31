@@ -43,6 +43,6 @@ I built the prototype and spec autonomously overnight. These are the decisions a
 
 ## Meditation coping skill · Be333.app — new
 - [ ] **Confirm the flow** — meditation is an opt-in coping skill; the app launches **Be333.app** for the timer and logs sessions back once connected. Good?
-- [ ] **Be333.app integration** — what can Be333.app expose? Need either (a) a deep-link to start a timed session + a webhook/API to report completion, or (b) account linking (OAuth) to pull sessions. Who builds the Be333 side?
+- [x] **Be333.app integration design** — full engineering spec written: `docs/be333-integration.md` (deep-link launch + OAuth account-link + HMAC-signed webhook sync). **Your call:** do you own/control Be333.app so we can build the OAuth + webhook side? (If not, we fall back to launch-only + best-effort logging.)
 - [ ] **What to sync** — minutes, session length, streak, timestamp (to correlate with urges). Confirm.
 - [ ] **Entry points** — Today "daily practice", the high-risk-window nudge, and an SOS "Meditate with Be333" action. OK?

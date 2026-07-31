@@ -3,7 +3,7 @@
 Design concept for the recovery companion app that extends Dr. Powers' program.
 
 - **`prototype.html`** — self-contained interactive prototype (open in any browser).
-  Screens: cinematic onboarding, Today, Program, a lesson detail, SOS urge tool, Reflect, You/Progress. Sample data. Private-first, no emoji, committed dark theme.
+  Screens: cinematic onboarding, Today, Program, a lesson detail, SOS urge tool, Reflect, You/Progress. Sample data. Private-first, no emoji, committed dark theme. Includes Signals (wearables), Be333 meditation, and the device-connect/consent flow.
 - **Spec:** [`../docs/app-spec.md`](../docs/app-spec.md)
 - **What we still need from you:** [`../docs/app-todo.md`](../docs/app-todo.md)
 
